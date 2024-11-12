@@ -1,4 +1,0 @@
-from langchain_community.embeddings import HuggingFaceInstructEmbeddings
-
-
-embedder = HuggingFaceInstructEmbeddings(model_name = "/Users/outbell/Ajay/DeepLearning/GenAI/MedLLM/stella_model_file")
