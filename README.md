@@ -1,1 +1,1 @@
-# MedRag-Retrieval-Augmented-Generation-RAG-Application-for-Medical-Data
+# MedRag
