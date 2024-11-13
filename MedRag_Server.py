@@ -8,7 +8,6 @@ from uuid import uuid4
 from blob_authentication import blob_client
 from DocumentLoader import CustomDocumentLoader
 from postgres_server import postgres_client
-import FileProcessingRequest
 from langchain_core.messages import AIMessage, HumanMessage
 from PostgresChatMessageHistory_class import PostgresChatMessageHistory
 from client_inputs_saver import client_inputs
@@ -21,9 +20,19 @@ from langchain_core.messages import BaseMessage
 from langchain_chroma import Chroma
 from langserve import add_routes
 from fastapi import FastAPI
+from langserve import CustomUserType
+from pydantic import Field
 
 
+class FileProcessingRequest(CustomUserType):
+    """Request including a base64 encoded file."""
 
+    # The extra field is used to specify a widget for the playground UI.
+    file: list = Field(...)
+    file_name: list = Field(...)
+    
+    
+    
 #Callback for collecting the llm response and push to the database
 class LoggingHandler(BaseCallbackHandler):
   def on_llm_end(self, response: LLMResult, **kwargs) -> None:
