@@ -24,7 +24,11 @@ def ui():
     #If the prompt is not None
     with st.sidebar:
         files = st.file_uploader(label = "Upload Files here", accept_multiple_files = True, label_visibility = 'collapsed')
-        #st.button("send", on_click = send_files(files))
+        tab1, tab2 = st.tabs(['chat1', 'chat2'])
+        with tab1:
+            st.header("chat1")
+        with tab2:
+            st.header("chat2")
     st.chat_message("Assistant")
     st.markdown("Hi, I am MedGPT, your beloved medical document assistant. Feel free to ask anything:)")
 ui()
